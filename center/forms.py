@@ -12,7 +12,7 @@ class StudentUserForm(forms.ModelForm):
 class StudentExtraForm(forms.ModelForm):
     class Meta:
         model = models.StudentExtra
-        fields = ['school_class', 'mobile', 'status']
+        fields = ['owned_teachers', 'mobile', 'status']
 
 
 class AdminSigupForm(forms.ModelForm):
@@ -42,5 +42,5 @@ class NoticeForm(forms.ModelForm):
 class MarkForm(forms.ModelForm):
     class Meta:
         model = models.Mark
-        fields = ['student', 'teacher', 'value', 'date']
+        fields = ['student', 'teacher', 'value']
 

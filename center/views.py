@@ -387,3 +387,11 @@ def teacher_notice_view(request):
         else:
             print('form invalid')
     return render(request, 'school/teacher_notice.html', {'form': form})
+
+
+@user_passes_test(is_teacher)
+def teacher_view_owned_student_view(request, id):
+    associated_students = request.user.teacherextra.studentextra_set.all()
+
+    students = models.StudentExtra.objects.all().filter(status=True, owned_teachers__id__exact=id)
+    return render(request, 'school/teacher_view_owned_student.html', {'students': students})
